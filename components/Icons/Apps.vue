@@ -15,4 +15,3 @@
 <script setup>
 const props = defineProps(["width", "height", "color"]);
 </script>
-
