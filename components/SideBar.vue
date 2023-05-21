@@ -27,8 +27,13 @@
     </div>
 
     <!-- bottom -->
-    <div class="border-t border-slate-400">
-      <button class="p-4">Try Premium free</button>
+    <div class="border-t border-slate-400 py-4 px-2">
+      <button
+        class="w-full p-1 font-[14px] rounded-sm text-white bg-gradient-to-r from-violet-500 to-fuchsia-400 flex items-center hover:bg-gradient-to-r hover:from-indigo-900 hover:to-sky-500"
+      >
+        <IconsBag width="16" height="16" color="white" class="mx-2" />
+        Try Premium free
+      </button>
     </div>
   </div>
 </template>
