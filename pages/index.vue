@@ -1,18 +1,19 @@
 <template>
-  <div class="bg-slate-400 h-full flex justify-center items-center">
-    <ClientOnly>
-      <draggable
-        v-model="myArray"
-        group="people"
-        @start="drag = true"
-        @end="drag = false"
-        item-key="id"
-      >
-        <template #item="{ element }">
-          <div>{{ element.name }}</div>
-        </template>
-      </draggable>
-    </ClientOnly>
+  <div class="h-full w-full flex justify-center items-center">
+    <draggable
+      v-model="myArray"
+      group="people"
+      @start="drag = true"
+      @end="drag = false"
+      item-key="id"
+    >
+      <template #item="{ element }">
+        <div>{{ element.name }}</div>
+      </template>
+    </draggable>
+    <div>
+     
+    </div>
   </div>
 </template>
 

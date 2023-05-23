@@ -1,7 +1,7 @@
 <script setup></script>
 <template>
   <div
-    class="w-60 absolute top-[50px] left-0 h-[96vh] border border-slate-400 backdrop-blur-md bg-white/30 flex flex-col justify-between text-white"
+    class="w-60 border border-slate-400 backdrop-blur-md bg-white/30 flex flex-col justify-between text-white"
   >
     <!-- top -->
     <div class="border-b border-slate-400 py-3 px-2 flex">

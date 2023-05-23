@@ -2,9 +2,13 @@
 <template>
   <div class="h-screen bg-hero bg-no-repeat bg-cover">
     <Header />
-
-    <SideBar />
-    <slot />
+    <!-- bottom container -->
+    <div class="flex h-[calc(100vh-50px)]">
+      <SideBar />
+      <div class="flex-grow overflow-auto p-2">
+        <slot />
+      </div>
+    </div>
   </div>
 </template>
 
