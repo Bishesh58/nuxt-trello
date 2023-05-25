@@ -3,8 +3,6 @@
     <draggable
       v-model="listWithKeys"
       group="people"
-      tag="transition-group"
-      :component-data="{ name: 'fade' }"
       v-bind="dragOptions"
       item-key="list1"
       transition
@@ -60,15 +58,14 @@
 
 <script setup>
 const props = defineProps(["list"]);
-const { list } = toRefs(props);
 const title = ref("Board 1");
 
-
-const listWithKeys = ref(props.list.map((item, index) => ({
-  ...item,
-  key: `item_${index}`,
-  dragging: false,
-})));
+const listWithKeys = ref(
+  props.list.map((item, index) => ({
+    ...item,
+    key: `item_${index}`,
+  }))
+);
 const fadeTransitionProps = {
   class: ["fade-enter-active", "fade-leave-active"],
   css: false,
@@ -95,5 +92,9 @@ const addPeople = () => {
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
+}
+.ghost {
+  opacity: 0.5;
+  background: #cfd4d4;
 }
 </style>
