@@ -2,10 +2,10 @@
   <div class="bg-[#f1f2f4] w-[300px] rounded-lg p-2 text-gray-700">
     <draggable
       v-model="listWithKeys"
-      group="people"
-      v-bind="dragOptions"
+      group="board"
+      ghostClass="ghost"
+      :animation="200"
       item-key="list1"
-      transition
     >
       <template #header>
         <div class="flex items-center">
@@ -26,7 +26,6 @@
         <div
           class="bg-white my-2 py-2 px-2.5 rounded-lg border shadow-sm"
           :key="element.id"
-          v-bind="fadeTransitionProps"
         >
           {{ element.name }}
         </div>
@@ -34,7 +33,7 @@
       <template #footer>
         <div class="flex items-center">
           <button
-            @click="addPeople"
+            @click="addCard"
             class="flex-1 text-left py-1 px-2.5 hover:bg-gray-300 rounded-md"
           >
             <IconsPlus
@@ -66,33 +65,13 @@ const listWithKeys = ref(
     key: `item_${index}`,
   }))
 );
-const fadeTransitionProps = {
-  class: ["fade-enter-active", "fade-leave-active"],
-  css: false,
-};
 
-const dragOptions = {
-  animation: 200,
-  group: "people",
-  disabled: false,
-  ghostClass: "ghost",
-};
-
-const addPeople = () => {
+const addCard = () => {
   // Implement your logic to add people here
 };
 </script>
 
 <style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
-}
-
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-}
 .ghost {
   opacity: 0.5;
   background: #cfd4d4;
