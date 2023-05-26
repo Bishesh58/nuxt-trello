@@ -2,10 +2,10 @@
   <div class="">
     <div class="flex gap-2">
       <list-container v-for="item in boards" :key="item.id" :list="myArray" />
-      <div class="text-[#FFFFFF]">
-        <button
+      <div class="min-w-[250px] rounded-lg bg-white">
+        <!-- <button
           @click="addBoard"
-          class="flex-1 py-1 px-2.5 hover:bg-gray-400/60 rounded-md"
+          class="flex-1 py-1 px-2.5 bg-gray-400/40 hover:bg-gray-400/60 rounded-md w-full text-left"
         >
           <IconsPlus
             width="20"
@@ -14,7 +14,25 @@
             class="inline mr-2"
           />
           Add a board
-        </button>
+        </button> -->
+        <div class="m-2">
+          <input
+            type="text"
+            placeholder="Enter board title"
+            class="w-full p-2 mb-1 outline-none text-sm placeholder:text-gray-800 rounded-md focus:ring-2 focus:ring-blue-700 focus:ring-inset"
+          />
+          <button
+            class="text-white bg-blue-500 p-2 text-sm rounded-md hover:cursor-pointer"
+          >
+            Add board
+          </button>
+          <IconsClose
+            width="30"
+            height="30"
+            color="gray"
+            class="inline m-2 p-1 hover:cursor-pointer"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -33,7 +51,7 @@ const myArray = ref([
 const numBoards = ref(0); // Number of initial boards
 
 const addBoard = () => {
-  numBoards.value += 1;
+  //numBoards.value += 1;
 };
 
 const boards = computed(() => {
