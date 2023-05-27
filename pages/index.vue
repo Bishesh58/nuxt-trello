@@ -2,19 +2,14 @@
   <div class="">
     <div class="flex gap-2">
       <list-container v-for="item in boards" :key="item.id" :list="myArray" />
-      <div class="min-w-[250px] rounded-lg bg-white relative">
+      <div class="min-w-[250px] rounded-lg relative">
         <button
           @click="showModal = true"
           v-show="!showModal"
           ref="showModalButton"
-          class="flex-1 py-1 px-2.5 bg-gray-400/40 hover:bg-gray-400/60 rounded-md w-full text-left"
+          class="flex-1 p-2.5 bg-white/30 hover:bg-white/40 text-white rounded-md w-full text-left"
         >
-          <IconsPlus
-            width="20"
-            height="20"
-            color="#FFFFFF"
-            class="inline mr-2"
-          />
+          <IconsPlus width="20" height="20" color="#FFFFFF" class="inline" />
           Add a board
         </button>
 
@@ -30,7 +25,7 @@
             class="w-full p-2 mb-1 outline-none text-sm placeholder:text-gray-800 rounded-md focus:ring-2 focus:ring-blue-700 focus:ring-inset"
           />
           <button
-            class="text-white bg-blue-500 p-2 text-sm rounded-md hover:cursor-pointer"
+            class="text-white bg-blue-500 p-2 text-xs rounded-md hover:cursor-pointer"
           >
             Add board
           </button>
