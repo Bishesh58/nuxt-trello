@@ -56,8 +56,9 @@
 </template>
 
 <script setup>
-const props = defineProps(["list"]);
-const title = ref("Board 1");
+const props = defineProps(["list", "title"]);
+
+const title = ref(props.title);
 
 const listWithKeys = ref(
   props.list.map((item, index) => ({
@@ -66,9 +67,13 @@ const listWithKeys = ref(
   }))
 );
 
+console.log(props.list);
+
 const addCard = () => {
   // Implement your logic to add people here
 };
+
+console.log(title.value)
 </script>
 
 <style scoped>

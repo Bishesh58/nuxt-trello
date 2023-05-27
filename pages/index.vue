@@ -1,7 +1,12 @@
 <template>
   <div class="">
     <div class="flex gap-2">
-      <list-container v-for="item in boards" :key="item.id" :list="myArray" />
+      <list-container
+        v-for="board in myBoards"
+        :key="board.id"
+        :list="boardListItems"
+        :title="board.name"
+      />
       <div class="min-w-[250px] rounded-lg relative">
         <button
           @click="showModal = true"
@@ -20,12 +25,15 @@
         >
           <input
             ref="modalInput"
+            v-model="inputTitle"
             type="text"
             placeholder="Enter board title"
-            class="w-full p-2 mb-1 outline-none text-sm placeholder:text-gray-800 rounded-md focus:ring-2 focus:ring-blue-700 focus:ring-inset"
+            class="w-full p-2 mb-1 outline-none text-sm placeholder:text-gray-800 rounded-md ring-2 ring-blue-700 ring-inset"
           />
           <button
             class="text-white bg-blue-500 p-2 text-xs rounded-md hover:cursor-pointer"
+            type="submit"
+            @click="addNewBoard"
           >
             Add board
           </button>
@@ -47,6 +55,9 @@
 const showModal = ref(false);
 const showModalButton = ref(null);
 const modalInput = ref(null);
+const inputTitle = ref("Board");
+const boardListItems = ref([{ id: 123, name: "test abc" }]);
+const myBoards = ref([]);
 
 const closeModal = () => {
   showModal.value = false;
@@ -71,28 +82,16 @@ const handleOutsideClick = (ev) => {
   }
 };
 
-const myArray = ref([
-  { id: 1, name: "test 1" },
-  { id: 2, name: "test 2" },
-  { id: 3, name: "test 3" },
-  { id: 4, name: "test 4" },
-  { id: 5, name: "test 5" },
-  { id: 6, name: "test 6" },
-]);
-
-const numBoards = ref(0); // Number of initial boards
-
-const addBoard = () => {
-  //numBoards.value += 1;
-};
-
-const boards = computed(() => {
-  const currentBoards = [];
-  for (let i = 0; i < numBoards.value; i++) {
-    currentBoards.push({ id: i + 1, name: `Board ${i + 1}` });
+const addNewBoard = () => {
+  if (inputTitle.value === "") {
+    modalInput.value.focus();
+    return;
   }
-  return currentBoards;
-});
+  const newBoard = { id: 1, name: inputTitle.value };
+  myBoards.value.push(newBoard);
+  inputTitle.value = "";
+  closeModal();
+};
 
 watch(showModal, (newValue) => {
   if (newValue) {
