@@ -2,9 +2,6 @@
 export default defineNuxtConfig({
   css: [
     "~/assets/main.css",
-    "primevue/resources/themes/lara-light-blue/theme.css",
-    "primevue/resources/primevue.css",
-    'primeicons/primeicons.css'
   ],
   modules: [],
   postcss: {
@@ -12,8 +9,5 @@ export default defineNuxtConfig({
       tailwindcss: {},
       autoprefixer: {},
     },
-  },
-  build: {
-    transpile: ["primevue"],
   },
 });
