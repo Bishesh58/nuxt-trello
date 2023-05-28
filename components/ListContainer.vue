@@ -5,7 +5,7 @@
       group="board"
       ghostClass="ghost"
       :animation="200"
-      item-key="list1"
+      :itemKey="props.title"
     >
       <template #header>
         <div class="flex items-center">
@@ -79,8 +79,8 @@
 </template>
 
 <script setup>
-const props = defineProps(["list", "title"]);
-
+const props = defineProps(["title"]);
+const myBoardLists = ref([]);
 const title = ref(props.title);
 const showCardModal = ref(false);
 const modalButtonRef = ref(null);
@@ -120,15 +120,6 @@ const addNewCard = () => {
   cardInput.value = "";
   closeModal();
 };
-
-const myBoardLists = ref([]);
-
-const listWithKeys = ref(
-  props.list.map((item, index) => ({
-    ...item,
-    key: `item_${index}`,
-  }))
-);
 
 watch(showCardModal, (newValue) => {
   if (newValue) {

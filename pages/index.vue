@@ -4,7 +4,6 @@
       <list-container
         v-for="board in myBoards"
         :key="board.id"
-        :list="boardListItems"
         :title="board.name"
       />
       <div class="min-w-[250px] rounded-lg relative">
@@ -56,7 +55,6 @@ const showModal = ref(false);
 const showModalButton = ref(null);
 const modalInput = ref(null);
 const inputTitle = ref("");
-const boardListItems = ref([]);
 const myBoards = ref([]);
 
 const closeModal = () => {
