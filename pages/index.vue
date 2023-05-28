@@ -55,8 +55,8 @@
 const showModal = ref(false);
 const showModalButton = ref(null);
 const modalInput = ref(null);
-const inputTitle = ref("Board");
-const boardListItems = ref([{ id: 123, name: "test abc" }]);
+const inputTitle = ref("");
+const boardListItems = ref([]);
 const myBoards = ref([]);
 
 const closeModal = () => {
