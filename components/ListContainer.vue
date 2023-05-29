@@ -67,11 +67,6 @@
             <IconsPlus width="20" height="20" color="gray" class="inline" />
             Add a card
           </button>
-          <div
-            class="h-8 w-8 p-1 mx-1 rounded-md flex justify-center items-center hover:bg-gray-300 hover:cursor-pointer"
-          >
-            <IconsMore width="18" height="18" color="black" />
-          </div>
         </div>
       </template>
     </draggable>
