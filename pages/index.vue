@@ -8,9 +8,9 @@
       />
       <div class="min-w-[250px] rounded-lg relative">
         <button
-          @click="showModal = true"
-          v-show="!showModal"
-          ref="showModalButton"
+          @click="boardInputModal = true"
+          v-show="!boardInputModal"
+          ref="boardInputModalButton"
           class="flex-1 p-2.5 bg-white/30 hover:bg-white/40 text-white rounded-md w-full text-left"
         >
           <IconsPlus width="20" height="20" color="#FFFFFF" class="inline" />
@@ -19,7 +19,7 @@
 
         <div
           id="modal"
-          v-if="showModal"
+          v-if="boardInputModal"
           class="absolute top-0 bg-white p-2 rounded-md"
         >
           <input
@@ -37,7 +37,7 @@
             Add board
           </button>
           <IconsClose
-            @click="showModal = false"
+            @click="boardInputModal = false"
             width="30"
             height="30"
             color="gray"
@@ -51,14 +51,14 @@
 
 <script setup>
 // modal
-const showModal = ref(false);
-const showModalButton = ref(null);
+const boardInputModal = ref(false);
+const boardInputModalButton = ref(null);
 const modalInput = ref(null);
 const inputTitle = ref("");
 const myBoards = ref([]);
 
 const closeModal = () => {
-  showModal.value = false;
+  boardInputModal.value = false;
 };
 
 onMounted(() => {
@@ -74,7 +74,7 @@ const handleOutsideClick = (ev) => {
   if (
     modalContainer &&
     !modalContainer.contains(ev.target) &&
-    ev.target !== showModalButton.value
+    ev.target !== boardInputModalButton.value
   ) {
     closeModal();
   }
@@ -91,7 +91,7 @@ const addNewBoard = () => {
   closeModal();
 };
 
-watch(showModal, (newValue) => {
+watch(boardInputModal, (newValue) => {
   if (newValue) {
     nextTick(() => {
       modalInput.value.focus();

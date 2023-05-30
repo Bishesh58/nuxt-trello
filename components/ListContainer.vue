@@ -24,6 +24,7 @@
       </template>
       <template #item="{ element }">
         <div
+          @click="openCardModal(element)"
           class="bg-white my-2 py-2 px-2.5 rounded-lg border shadow-sm"
           :key="element.id"
         >
@@ -33,7 +34,7 @@
       <template #footer>
         <div
           id="cardModal"
-          v-if="showCardModal"
+          v-if="cardInputModal"
           class="bg-white p-2 rounded-md"
         >
           <input
@@ -51,17 +52,17 @@
             Add Card
           </button>
           <IconsClose
-            @click="showCardModal = false"
+            @click="cardInputModal = false"
             width="30"
             height="30"
             color="gray"
             class="inline m-2 p-1 hover:cursor-pointer"
           />
         </div>
-        <div v-show="!showCardModal" class="flex items-center">
+        <div v-show="!cardInputModal" class="flex items-center">
           <button
             ref="modalButtonRef"
-            @click="showCardModal = true"
+            @click="cardInputModal = true"
             class="flex-1 text-left py-1 px-2.5 hover:bg-gray-300 rounded-md"
           >
             <IconsPlus width="20" height="20" color="gray" class="inline" />
@@ -70,6 +71,16 @@
         </div>
       </template>
     </draggable>
+    <!-- dialog -->
+    <Dialog
+      v-model:visible="cardModalVisible"
+      modal
+      :draggable="false"
+      :header="cardHeader"
+      :style="{ width: '50vw' }"
+    >
+      <CardDetail />
+    </Dialog>
   </div>
 </template>
 
@@ -77,13 +88,16 @@
 const props = defineProps(["title"]);
 const myBoardLists = ref([]);
 const title = ref(props.title);
-const showCardModal = ref(false);
+const cardInputModal = ref(false);
 const modalButtonRef = ref(null);
 const cardInputRef = ref(null);
 const cardInput = ref("");
+const cardHeader = ref("");
+
+const cardModalVisible = ref(false);
 
 const closeModal = () => {
-  showCardModal.value = false;
+  cardInputModal.value = false;
 };
 
 onMounted(() => {
@@ -116,18 +130,30 @@ const addNewCard = () => {
   closeModal();
 };
 
-watch(showCardModal, (newValue) => {
+watch(cardInputModal, (newValue) => {
   if (newValue) {
     nextTick(() => {
       cardInputRef.value.focus();
     });
   }
 });
+
+const openCardModal = (element) => {
+  cardHeader.value = element.name;
+  cardModalVisible.value = true;
+};
 </script>
 
 <style scoped>
 .ghost {
   opacity: 0.5;
   background: #cfd4d4;
+}
+
+.p-dialog-header {
+  padding: 0 !important;
+}
+.p-dialog-content {
+  background: red;
 }
 </style>
