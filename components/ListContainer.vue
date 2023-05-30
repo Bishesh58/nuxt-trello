@@ -71,14 +71,27 @@
         </div>
       </template>
     </draggable>
-    <!-- dialog -->
+    <!-- card dialog -->
     <Dialog
       v-model:visible="cardModalVisible"
       modal
       :draggable="false"
-      :header="cardHeader"
-      :style="{ width: '50vw' }"
+      :closable="false"
+      class="min-w-[480px] md:w-full max-w-[800px]"
     >
+      <template #header>
+        <h1 class="text-2xl text-gray-700 font-bold">
+          {{ cardHeader }}
+          <p class="text-sm font-normal py-1">in list Board 1</p>
+        </h1>
+        <div
+          @click="cardModalVisible = false"
+          class="absolute top-4 right-4 hover:bg-gray-200 rounded-full p-2 hover:cursor-pointer"
+        >
+          <IconsClose width="18" height="18" color="black" />
+        </div>
+      </template>
+      <!-- #default -->
       <CardDetail />
     </Dialog>
   </div>
@@ -148,12 +161,5 @@ const openCardModal = (element) => {
 .ghost {
   opacity: 0.5;
   background: #cfd4d4;
-}
-
-.p-dialog-header {
-  padding: 0 !important;
-}
-.p-dialog-content {
-  background: red;
 }
 </style>
