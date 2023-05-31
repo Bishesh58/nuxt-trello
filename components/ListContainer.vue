@@ -77,7 +77,7 @@
       modal
       :draggable="false"
       :closable="false"
-      class="min-w-[480px] md:w-full max-w-[800px]"
+      class="min-w-[480px] bg-[#f1f2f4] md:w-full max-w-[800px]"
     >
       <template #header>
         <h1 class="text-2xl text-gray-700 font-bold">
