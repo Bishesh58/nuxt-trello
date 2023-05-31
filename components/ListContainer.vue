@@ -77,7 +77,9 @@
       modal
       :draggable="false"
       :closable="false"
-      class="min-w-[480px] bg-[#f1f2f4] md:w-full max-w-[800px]"
+      position="center"
+      appendTo="#feed"
+      class="min-w-[480px] bg-[#f1f2f4] md:w-full max-w-[800px] h-full"
     >
       <template #header>
         <h1 class="text-2xl text-gray-700 font-bold">

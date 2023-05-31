@@ -2,7 +2,7 @@
 <template>
   <header
     class="w-full z-10 h-[50px] p-2 border border-slate-400 backdrop-blur-lg bg-white/50 text-white"
-  >
+    >
     <div class="flex justify-between gap-2">
       <!-- left -->
       <div class="flex items-center gap-2.5">

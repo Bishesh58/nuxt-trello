@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="h-full p-2" id="feed">
     <div class="flex gap-2">
       <list-container
         v-for="board in myBoards"

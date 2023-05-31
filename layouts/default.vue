@@ -5,7 +5,7 @@
     <!-- bottom container -->
     <div class="flex h-[calc(100vh-50px)]">
       <SideBar />
-      <div class="flex-grow overflow-auto p-2">
+      <div class="flex-grow overflow-auto">
         <slot />
       </div>
     </div>
