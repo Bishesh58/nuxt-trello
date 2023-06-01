@@ -2,8 +2,8 @@
   <Dialog
     v-model:visible="visible"
     modal
+    :closable="false"
     :draggable="false"
-    
     position="center"
     appendTo="#feed"
     class="min-w-[480px] bg-[#f1f2f4] md:w-full max-w-[800px] h-full"
@@ -14,7 +14,7 @@
         <p class="text-sm font-normal py-1">in list Board 1</p>
       </h1>
       <div
-        @click="visible"
+        @click="$emit('update:visible', false)"
         class="absolute top-4 right-4 hover:bg-gray-200 rounded-full p-2 hover:cursor-pointer"
       >
         <IconsClose width="18" height="18" color="black" />

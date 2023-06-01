@@ -75,7 +75,7 @@
     <CardDetail
       :visible="showCardDetail"
       header="This is my header"
-      @update:visible="updateModal"
+      @update:visible="showCardDetail = $event"
     />
   </div>
 </template>
@@ -138,9 +138,7 @@ const openCardDetail = (element) => {
   cardHeader.value = element.name;
   showCardDetail.value = true;
 };
-const updateModal = (event) => {
-  showCardDetail.value = event;
-};
+
 </script>
 
 <style scoped>
