@@ -24,7 +24,7 @@
       </template>
       <template #item="{ element }">
         <div
-          @click="openCardModal(element)"
+          @click="openCardDetail(element)"
           class="bg-white my-2 py-2 px-2.5 rounded-lg border shadow-sm"
           :key="element.id"
         >
@@ -71,31 +71,12 @@
         </div>
       </template>
     </draggable>
-    <!-- card dialog -->
-    <Dialog
-      v-model:visible="cardModalVisible"
-      modal
-      :draggable="false"
-      :closable="false"
-      position="center"
-      appendTo="#feed"
-      class="min-w-[480px] bg-[#f1f2f4] md:w-full max-w-[800px] h-full"
-    >
-      <template #header>
-        <h1 class="text-2xl text-gray-700 font-bold">
-          {{ cardHeader }}
-          <p class="text-sm font-normal py-1">in list Board 1</p>
-        </h1>
-        <div
-          @click="cardModalVisible = false"
-          class="absolute top-4 right-4 hover:bg-gray-200 rounded-full p-2 hover:cursor-pointer"
-        >
-          <IconsClose width="18" height="18" color="black" />
-        </div>
-      </template>
-      <!-- #default -->
-      <CardDetail />
-    </Dialog>
+    <!-- card detail modal -->
+    <CardDetail
+      :visible="showCardDetail"
+      header="This is my header"
+      @update:visible="updateModal"
+    />
   </div>
 </template>
 
@@ -109,7 +90,7 @@ const cardInputRef = ref(null);
 const cardInput = ref("");
 const cardHeader = ref("");
 
-const cardModalVisible = ref(false);
+const showCardDetail = ref(false);
 
 const closeModal = () => {
   cardInputModal.value = false;
@@ -153,9 +134,12 @@ watch(cardInputModal, (newValue) => {
   }
 });
 
-const openCardModal = (element) => {
+const openCardDetail = (element) => {
   cardHeader.value = element.name;
-  cardModalVisible.value = true;
+  showCardDetail.value = true;
+};
+const updateModal = (event) => {
+  showCardDetail.value = event;
 };
 </script>
 
