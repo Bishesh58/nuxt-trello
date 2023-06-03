@@ -55,6 +55,7 @@
           class="h-full p-1 px-1.5 rounded-md hidden md:flex justify-center items-center hover:bg-white/30 hover:cursor-pointer"
         >
           <IconsCheckList width="22" height="22" color="white" />
+          <IconsClock width="22" height="22" color="white" />
         </div>
       </div>
     </div>
