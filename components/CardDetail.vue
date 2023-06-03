@@ -50,7 +50,13 @@
         </div>
       </div>
       <!-- left -->
-      <div class="w-[200px] bg-slate-300">left</div>
+      <div class="w-[200px] bg-red-400">
+        <div
+          class="h-full p-1 px-1.5 rounded-md hidden md:flex justify-center items-center hover:bg-white/30 hover:cursor-pointer"
+        >
+          <IconsCheckList width="22" height="22" color="white" />
+        </div>
+      </div>
     </div>
   </Dialog>
 </template>
