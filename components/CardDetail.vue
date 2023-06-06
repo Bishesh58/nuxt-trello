@@ -152,7 +152,7 @@
         <div
           class="bg-gray-200 hover:bg-gray-300 p-2 flex gap-2 items-center rounded-sm"
         >
-          <IconsUser width="22" height="22" color="#374151" />
+          <IconsShare width="22" height="22" color="#374151" />
           <span>Share</span>
         </div>
       </div>
