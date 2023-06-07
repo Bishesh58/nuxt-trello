@@ -25,7 +25,7 @@
       <template #item="{ element }">
         <div
           @click="openCardDetail(element)"
-          class="bg-white my-2 py-2 px-2.5 rounded-lg border shadow-sm"
+          class="bg-white my-2 py-2 px-2.5 rounded-lg border shadow-sm hover:bg-[#f1f2f4] hover:border border-gray-300"
           :key="element.id"
         >
           {{ element.name }}
@@ -138,7 +138,6 @@ const openCardDetail = (element) => {
   cardHeader.value = element.name;
   showCardDetail.value = true;
 };
-
 </script>
 
 <style scoped>
