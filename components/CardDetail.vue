@@ -11,7 +11,9 @@
     <template #header>
       <h1 class="text-2xl text-gray-700 font-bold">
         header {{}}
-        <p class="text-sm font-normal py-1">in list Board 1</p>
+        <p class="text-sm font-normal py-1">
+          in list <span class="underline">Board 1</span>
+        </p>
       </h1>
       <div
         @click="$emit('update:visible', false)"
@@ -65,13 +67,16 @@
               <img src="" alt="" />
             </div>
             <div class="flex-grow">
-              <span>Bishesh</span> <span class="inline">8 minutes ago</span>
+              <span class="font-semibold">Bishesh</span>
+              <span class="px-2 inline text-xs text-gray-600 font-light"
+                >8 minutes ago</span
+              >
               <input
-                class="flex-grow p-2 rounded-md w-full"
+                class="flex-grow p-2 my-1.5 rounded-md w-full"
                 type="text"
                 placeholder="Write a comment..."
               />
-              <div class="py-1 flex gap-2">
+              <div class="flex gap-2">
                 face <button class="underline">Edit</button>
                 <button class="underline">Delete</button>
               </div>
