@@ -23,29 +23,59 @@
     <!-- #default -->
     <div class="h-full flex flex-col md:flex-row bg-[#f1f2f4] text-sm">
       <!-- right -->
-      <div class="flex-grow">
+      <div class="flex-grow pr-4">
         <!-- top -->
         <div class="flex"></div>
-        <div>
-          <p>Notifications</p>
-          <div>icon watching icon</div>
-        </div>
-        <!-- middle -->
-        <div>
-          <input type="text" placeholder="Add a more detailed description.." />
+
+        <div class="flex gap-2">
           icon
-          <h1>Description</h1>
+          <div class="flex-grow">
+            <h1 class="text-base font-semibold">Description</h1>
+            <input
+              type="text"
+              placeholder="Add a more detailed description.."
+              class="h-12 p-2 my-4 w-full bg-gray-200 hover:bg-gray-300 rounded-sm placeholder:text-gray-700 text-gray-700"
+            />
+          </div>
         </div>
         <!-- bottom -->
-        <div>
+        <div class="flex items-center gap-2 my-2">
           icon
-          <h1>Acitvity</h1>
-          <button>Show details/ hide details</button>
-          <div>img <input type="text" placeholder="Write a comment..." /></div>
-          <!-- lists -->
-          <div>
-            img <input type="text" placeholder="test 1" /> icon
-            <button>edit</button> <button>delete</button>
+          <h1 class="flex-grow text-base font-semibold">Activity</h1>
+          <button
+            class="bg-gray-200 hover:bg-gray-300 p-2 flex gap-2 items-center rounded-sm"
+          >
+            Show details
+          </button>
+        </div>
+        <div class="flex gap-2 items-center">
+          <div class="h-10 w-10 rounded-full bg-green-700">
+            <img src="" alt="" />
+          </div>
+          <input
+            class="flex-grow p-2 rounded-md"
+            type="text"
+            placeholder="Write a comment..."
+          />
+        </div>
+        <!-- comments -->
+        <div v-for="(item, index) in 5" :key="index" class="my-2">
+          <div class="flex gap-2 items-center">
+            <div class="h-10 w-10 rounded-full bg-green-700 self-start">
+              <img src="" alt="" />
+            </div>
+            <div class="flex-grow">
+              <span>Bishesh</span> <span class="inline">8 minutes ago</span>
+              <input
+                class="flex-grow p-2 rounded-md w-full"
+                type="text"
+                placeholder="Write a comment..."
+              />
+              <div class="py-1 flex gap-2">
+                face <button class="underline">Edit</button>
+                <button class="underline">Delete</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
