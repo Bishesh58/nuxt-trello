@@ -115,31 +115,31 @@
         <div
           class="bg-gray-200 hover:bg-gray-300 p-2 flex gap-2 items-center rounded-sm"
         >
-          <IconsUser width="18" height="18" color="#374151" />
+          <IconsLabel width="18" height="18" color="#374151" />
           <span>Labels</span>
         </div>
         <div
           class="bg-gray-200 hover:bg-gray-300 p-2 flex gap-2 items-center rounded-sm"
         >
-          <IconsUser width="18" height="18" color="#374151" />
+          <IconsCheckList width="18" height="18" color="#374151" />
           <span>Checklist</span>
         </div>
         <div
           class="bg-gray-200 hover:bg-gray-300 p-2 flex gap-2 items-center rounded-sm"
         >
-          <IconsUser width="18" height="18" color="#374151" />
+          <IconsClock width="18" height="18" color="#374151" />
           <span>Dates</span>
         </div>
         <div
           class="bg-gray-200 hover:bg-gray-300 p-2 flex gap-2 items-center rounded-sm"
         >
-          <IconsUser width="18" height="18" color="#374151" />
+          <IconsAttachment width="18" height="18" color="#374151" />
           <span>Attachment</span>
         </div>
         <div
           class="bg-gray-200 hover:bg-gray-300 p-2 flex gap-2 items-center rounded-sm"
         >
-          <IconsUser width="18" height="18" color="#374151" />
+          <IconsCover width="18" height="18" color="#374151" />
           <span>Cover</span>
         </div>
         <div
@@ -152,7 +152,7 @@
           <span>Power-Ups</span>
         </div>
         <div class="hover:bg-gray-300 p-2 flex gap-2 items-center rounded-sm">
-          <IconsUser width="18" height="18" color="#374151" />
+          <IconsPlus width="18" height="18" color="#374151" />
           <span>Add Power-Ups</span>
         </div>
         <div class="p-2 col-span-2 md:col-span-1">
