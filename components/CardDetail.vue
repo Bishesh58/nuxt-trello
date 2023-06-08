@@ -161,13 +161,13 @@
         <div
           class="bg-gray-200 hover:bg-gray-300 p-2 flex gap-2 items-center rounded-sm"
         >
-          <IconsUser width="18" height="18" color="#374151" />
+          <IconsArrowRight width="18" height="18" color="#374151" />
           <span>Move</span>
         </div>
         <div
           class="bg-gray-200 hover:bg-gray-300 p-2 flex gap-2 items-center rounded-sm"
         >
-          <IconsUser width="18" height="18" color="#374151" />
+          <IconsCopy width="18" height="18" color="#374151" />
           <span>Copy</span>
         </div>
         <div
