@@ -10,7 +10,13 @@
   >
     <template #header>
       <h1 class="text-2xl text-gray-700 font-bold">
-        header {{}}
+        <IconsScreen
+          width="24"
+          height="24"
+          color="#374151"
+          class="inline mb-1"
+        />
+        <div class="inline pl-4">header {{}}</div>
         <p class="text-sm font-normal py-1">
           in list <span class="underline">Board 1</span>
         </p>
@@ -30,7 +36,7 @@
         <div class="flex"></div>
 
         <div class="flex gap-2">
-          icon
+          <IconsDescription width="24" height="24" color="#374151" />
           <div class="flex-grow">
             <h1 class="text-base font-semibold">Description</h1>
             <input
@@ -42,7 +48,7 @@
         </div>
         <!-- bottom -->
         <div class="flex items-center gap-2 my-2">
-          icon
+          <IconsActivity width="24" height="24" color="#374151" />
           <h1 class="flex-grow text-base font-semibold">Activity</h1>
           <button
             class="bg-gray-200 hover:bg-gray-300 p-2 flex gap-2 items-center rounded-sm"
@@ -61,7 +67,7 @@
           />
         </div>
         <!-- comments -->
-        <div v-for="(item, index) in 5" :key="index" class="my-2">
+        <div v-for="(item, index) in 5" :key="index" class="my-6">
           <div class="flex gap-2 items-center">
             <div class="h-10 w-10 rounded-full bg-green-700 self-start">
               <img src="" alt="" />
