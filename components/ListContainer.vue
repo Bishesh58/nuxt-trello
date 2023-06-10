@@ -29,6 +29,12 @@
           :key="element.id"
         >
           {{ element.name }}
+
+          <div
+            class="w-[36px] h-full p-1 rounded-md flex justify-center items-center hover:cursor-pointer hover:bg-gray-300"
+          >
+            <IconsPencil width="22" height="22" color="#374151" />
+          </div>
         </div>
       </template>
       <template #footer>
