@@ -25,15 +25,18 @@
       <template #item="{ element }">
         <div
           @click="openCardDetail(element)"
-          class="bg-white my-2 py-2 px-2.5 rounded-lg border shadow-sm hover:bg-[#f1f2f4] hover:border border-gray-300 group flex justify-between items-center"
+          class="bg-white my-2 p-0.5 rounded-lg border shadow-sm hover:bg-[#f1f2f4] hover:border border-gray-300 group relative"
           :key="element.id"
         >
-          <p>{{ element.name }}</p>
+          <p class="pl-2 min-h-[32px] flex items-center w-full">
+            {{ element.name }}
+          </p>
 
           <div
-            class="w-[36px] h-full p-1 rounded-md hidden group-hover:flex justify-center items-center hover:cursor-pointer hover:bg-gray-300"
+            @click.stop
+            class="absolute top-0.5 right-0.5 w-[32px] h-[32px] p-1.5 rounded-md hidden group-hover:flex justify-center items-center hover:cursor-pointer hover:bg-gray-300"
           >
-            <IconsPencil width="20" height="20" color="#374151" />
+            <IconsPencil color="gray" />
           </div>
         </div>
       </template>
