@@ -38,6 +38,16 @@
           >
             <IconsPencil color="gray" />
           </div>
+          <div
+            @click.stop
+            class="bg-gray-900/50 rounded-lg absolute top-0 right-0 left-0 bottom-0 min-h-[260px]"
+          >
+            <textarea
+              type="text"
+              class="w-full h-full p-2 rounded-lg min-h-[100px] outline-none bg-red-400"
+            />
+            <button>save</button>
+          </div>
         </div>
       </template>
       <template #footer>
@@ -98,6 +108,7 @@ const modalButtonRef = ref(null);
 const cardInputRef = ref(null);
 const cardInput = ref("");
 const cardHeader = ref("");
+const cardEditorModal = ref(false);
 
 const showCardDetail = ref(false);
 
