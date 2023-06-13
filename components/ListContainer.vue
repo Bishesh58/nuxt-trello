@@ -42,6 +42,7 @@
           <div
             v-show="cardEditorModal && element.id === cardEditorElementId"
             @click.stop
+            ref="cardEditorRef"
             class="bg-gray-900/50 rounded-lg absolute top-0 right-0 left-0 bottom-0 z-50 min-h-[260px]"
           >
             <textarea
@@ -123,7 +124,22 @@ const cardEditorModal = ref(false);
 const cardEditor = ref("");
 const showCardDetail = ref(false);
 const cardEditorElementId = ref(null);
+const cardEditorRef = ref(null);
 
+watchEffect(() => {
+  const handleClickOutsideModal = (event) => {
+    if (cardEditorRef.value && !cardEditorRef.value.contains(event.target)) {
+      cardEditorModal.value = false;
+    }
+  };
+
+  document.addEventListener("mousedown", handleClickOutsideModal);
+
+  // Cleanup the event listener when the component is unmounted
+  return () => {
+    document.removeEventListener("mousedown", handleClickOutsideModal);
+  };
+});
 const openCardEditor = (element) => {
   cardEditorModal.value = true;
   cardEditor.value = element.name;
