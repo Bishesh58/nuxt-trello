@@ -111,6 +111,7 @@
 
 <script setup>
 import { v4 as uuidv4 } from "uuid";
+
 const props = defineProps(["title"]);
 
 const myBoardLists = ref([]);
