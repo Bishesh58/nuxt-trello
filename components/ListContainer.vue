@@ -29,24 +29,32 @@
           :key="element.id"
         >
           <p class="pl-2 min-h-[32px] flex items-center w-full">
-            {{ element.name }}
+            {{ element.name }} {{ element.id }}
           </p>
 
           <div
-            @click.stop
+            @click.stop="openCardEditor(element)"
             class="absolute top-0.5 right-0.5 w-[32px] h-[32px] p-1.5 rounded-md hidden group-hover:flex justify-center items-center hover:cursor-pointer hover:bg-gray-300"
           >
             <IconsPencil color="gray" />
           </div>
+          <!-- card editor -->
           <div
+            v-show="cardEditorModal && element.id === cardEditorElementId"
             @click.stop
             class="bg-gray-900/50 rounded-lg absolute top-0 right-0 left-0 bottom-0 min-h-[260px]"
           >
             <textarea
               type="text"
-              class="w-full h-full p-2 rounded-lg min-h-[100px] outline-none bg-red-400"
+              v-model="cardEditor"
+              class="w-full h-full p-2 rounded-lg min-h-[100px] outline-none bg-white"
             />
-            <button>save</button>
+            <button
+              @click.stop="cardEditorModal = false"
+              class="bg-blue-400 text-white rounded-md py-2 px-6"
+            >
+              Save
+            </button>
           </div>
         </div>
       </template>
@@ -109,8 +117,17 @@ const cardInputRef = ref(null);
 const cardInput = ref("");
 const cardHeader = ref("");
 const cardEditorModal = ref(false);
-
+const cardEditor = ref("");
 const showCardDetail = ref(false);
+const cardEditorElementId = ref(null);
+
+const openCardEditor = (element) => {
+  console.log("test..");
+  cardEditorModal.value = true;
+  cardEditor.value = element.name;
+  cardEditorElementId.value = element.id;
+  console.log(element);
+};
 
 const closeModal = () => {
   cardInputModal.value = false;
@@ -140,7 +157,8 @@ const addNewCard = () => {
     cardInputRef.value.focus();
     return;
   }
-  const newCard = { id: 1, name: cardInput.value };
+  const length = myBoardLists.value.length + 1;
+  const newCard = { id: length, name: cardInput.value };
   myBoardLists.value.push(newCard);
   cardInput.value = "";
   closeModal();

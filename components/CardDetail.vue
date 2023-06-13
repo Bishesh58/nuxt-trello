@@ -65,6 +65,8 @@
             type="text"
             placeholder="Write a comment..."
           />
+
+          <Editor v-model="value" editorStyle="height: 320px" />
         </div>
         <!-- comments -->
         <div v-for="(item, index) in 5" :key="index" class="my-6">
@@ -204,6 +206,7 @@
 <script setup>
 const visible = ref(false);
 
+const value = ref("");
 </script>
 
 <style scoped></style>
