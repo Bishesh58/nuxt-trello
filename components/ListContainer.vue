@@ -29,7 +29,7 @@
           :key="element.id"
         >
           <p class="pl-2 min-h-[32px] flex items-center w-full">
-            {{ element.name }} {{ element.id }}
+            {{ element.name }}
           </p>
 
           <div
@@ -42,10 +42,11 @@
           <div
             v-show="cardEditorModal && element.id === cardEditorElementId"
             @click.stop
-            class="bg-gray-900/50 rounded-lg absolute top-0 right-0 left-0 bottom-0 min-h-[260px]"
+            class="bg-gray-900/50 rounded-lg absolute top-0 right-0 left-0 bottom-0 z-50 min-h-[260px]"
           >
             <textarea
               type="text"
+              autofocus
               v-model="cardEditor"
               class="w-full h-full p-2 rounded-lg min-h-[100px] outline-none bg-white"
             />
@@ -108,7 +109,9 @@
 </template>
 
 <script setup>
+import { v4 as uuidv4 } from "uuid";
 const props = defineProps(["title"]);
+
 const myBoardLists = ref([]);
 const title = ref(props.title);
 const cardInputModal = ref(false);
@@ -122,11 +125,9 @@ const showCardDetail = ref(false);
 const cardEditorElementId = ref(null);
 
 const openCardEditor = (element) => {
-  console.log("test..");
   cardEditorModal.value = true;
   cardEditor.value = element.name;
   cardEditorElementId.value = element.id;
-  console.log(element);
 };
 
 const closeModal = () => {
@@ -157,8 +158,8 @@ const addNewCard = () => {
     cardInputRef.value.focus();
     return;
   }
-  const length = myBoardLists.value.length + 1;
-  const newCard = { id: length, name: cardInput.value };
+
+  const newCard = { id: uuidv4(), name: cardInput.value };
   myBoardLists.value.push(newCard);
   cardInput.value = "";
   closeModal();
