@@ -66,6 +66,7 @@
           v-if="cardInputModal"
           class="bg-white p-2 rounded-md"
         >
+        <form>
           <input
             ref="cardInputRef"
             v-model="cardInput"
@@ -87,6 +88,7 @@
             color="gray"
             class="inline m-2 p-1 hover:cursor-pointer"
           />
+        </form>
         </div>
         <div v-show="!cardInputModal" class="flex items-center">
           <button

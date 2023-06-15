@@ -22,27 +22,29 @@
           v-if="boardInputModal"
           class="absolute top-0 bg-white p-2 rounded-md"
         >
-          <input
-            ref="modalInput"
-            v-model="inputTitle"
-            type="text"
-            placeholder="Enter board title"
-            class="w-full p-2 mb-1 outline-none text-sm placeholder:text-gray-800 rounded-md ring-2 ring-blue-700 ring-inset"
-          />
-          <button
-            class="text-white bg-blue-500 p-2 text-xs rounded-md hover:cursor-pointer"
-            type="submit"
-            @click="addNewBoard"
-          >
-            Add board
-          </button>
-          <IconsClose
-            @click="boardInputModal = false"
-            width="30"
-            height="30"
-            color="gray"
-            class="inline m-2 p-1 hover:cursor-pointer"
-          />
+          <form>
+            <input
+              ref="modalInput"
+              v-model="inputTitle"
+              type="text"
+              placeholder="Enter board title"
+              class="w-full p-2 mb-1 outline-none text-sm placeholder:text-gray-800 rounded-md ring-2 ring-blue-700 ring-inset"
+            />
+            <button
+              class="text-white bg-blue-500 p-2 text-xs rounded-md hover:cursor-pointer"
+              type="submit"
+              @click="addNewBoard"
+            >
+              Add board
+            </button>
+            <IconsClose
+              @click="boardInputModal = false"
+              width="30"
+              height="30"
+              color="gray"
+              class="inline m-2 p-1 hover:cursor-pointer"
+            />
+          </form>
         </div>
       </div>
     </div>
