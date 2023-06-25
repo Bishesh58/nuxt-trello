@@ -60,14 +60,17 @@
           <div class="h-10 w-10 rounded-full bg-green-700">
             <img src="" alt="" />
           </div>
-          <input
-            class="flex-grow p-2 rounded-md"
-            type="text"
-            placeholder="Write a comment..."
-          />
+          <form @submit.prevent="handleAddcomment" class="flex-grow">
+            <input
+              v-model="commentInput"
+              class="p-2 rounded-md w-full"
+              type="text"
+              placeholder="Write a comment..."
+            />
+          </form>
         </div>
         <!-- comments -->
-        <div v-for="(item, index) in 5" :key="index" class="my-6">
+        <div v-for="(item, index) in comments" :key="index" class="my-6">
           <div class="flex gap-2 items-center">
             <div class="h-10 w-10 rounded-full bg-green-700 self-start">
               <img src="" alt="" />
@@ -80,8 +83,10 @@
               <input
                 class="flex-grow p-2 my-1.5 rounded-md w-full"
                 type="text"
+                :value="item.title"
                 placeholder="Write a comment..."
               />
+
               <div class="flex gap-2">
                 face <button class="underline">Edit</button>
                 <button class="underline">Delete</button>
@@ -203,6 +208,17 @@
 
 <script setup>
 const visible = ref(false);
+
+const comments = ref([]);
+const commentInput = ref("");
+
+const handleAddcomment = () => {
+  comments.value.push({
+    title: commentInput.value,
+    time: new Date().toLocaleDateString(),
+  });
+  commentInput.value = "";
+};
 </script>
 
 <style scoped></style>
